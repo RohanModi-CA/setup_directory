@@ -1,0 +1,1109 @@
+snippet int "int"
+\int
+endsnippet
+snippet \int "int bounds"
+\int_{$1}^{$2}{$3}{d$4} $0
+endsnippet
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet ssec "subsection" b
+\subsection*{$2}
+$0
+endsnippet
+
+snippet sqrt "sqrt()" i
+\sqrt{$1}$0
+endsnippet
+
+snippet boxed "boxed" w
+\boxed{$1} $0
+endsnippet
+
+
+snippet Box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+snippet box "boxed" w
+\boxed{$1} $0
+endsnippet
+
+snippet eqn "equation" w
+\begin{equation}      $1        \end{equation} $0
+endsnippet
+
+snippet sec "section" b
+\begin{myheader} { $1 } \end{myheader} 
+$0
+endsnippet
+
+snippet ds "Inline Math" wA
+$ $1$ `!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$0
+endsnippet
+
+snippet dm "Display Math" bwA
+\[       $1           \] $0
+endsnippet 
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet // "Fraction" iA
+\\frac{ $1 }{ $2 } $0
+endsnippet
+
+snippet docsetup "document setup" b
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{article}
+
+\usepackage[outputdir=.resources/pdf,cache=false]{minted}
+\input{/home/gram/Documents/FileFolder/setup/preamble.tex}
+
+\setlength{\headheight}{14.5pt}
+\addtolength{\topmargin}{-1cm}
+\pagestyle{fancy}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%% START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyhead[C]{\scshape { {$1} - {Problem Set $2}} } 
+
+question$0
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%  END  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+endsnippet
+
+
+
+snippet maketitle "title stuff" b
+
+\title{$1}
+\author{Rohan Modi}
+\date{\today}
+
+% \begin{document}
+
+\maketitle
+\pagebreak
+\pagenumbering{arabic}
+
+
+endsnippet
+
+snippet dot "dot" w
+\dot{$1}$0
+endsnippet
+
+snippet ddot "ddot" w
+\ddot{$1}$0
+endsnippet
+
+snippet dddot "dddot" w
+\dddot{$1}$0
+endsnippet
+
+priority 0
+snippet ^ "exp" i
+^{$1}$0
+endsnippet
+
+snippet _t "t-subscript" i
+_{\text{$1}}$0
+endsnippet
+
+snippet _ "subscript" i
+_{$1}$0
+endsnippet
+
+snippet * "times" i
+\times $0
+endsnippet
+
+
+priority 1
+
+snippet () "parentheses" i 
+\left( $1 \right) $0
+endsnippet
+
+snippet [] "brackets" i 
+\left[ $1 \right] $0
+endsnippet
+
+snippet spacer "spacer" wi 
+\text{\ \ \ }
+endsnippet
+
+snippet floor "floor" wi
+\left \lfloor{ $1 } \right \rfloor   $0
+endsnippet
+
+snippet \sum "sum" wi
+\sum_{$1}^{$2} $0
+endsnippet
+
+priority 0
+snippet sum "sum" wi
+\sum$0
+endsnippet
+priority 1
+
+snippet inf "infinity" i
+\infty
+endsnippet
+
+snippet pi "pi" i 
+\pi $0
+endsnippet
+
+snippet ... "..." i
+\text{ ... } $0
+endsnippet
+
+snippet txt "text" i
+\text{$1} $0
+endsnippet
+
+snippet text "text" i
+\text{ $1 } $0
+endsnippet
+
+snippet dne "does not equal" i
+\ne
+endsnippet
+
+
+snippet exp "exp" i
+\exp($1)$0
+endsnippet
+
+
+snippet log "log" i
+\log($1)$0
+endsnippet
+
+snippet cos "cosine" i
+\cos $0
+endsnippet
+
+snippet sin "sin" i
+\sin $0
+endsnippet
+
+snippet tan "tan" i
+\tan($1)$0
+endsnippet
+
+snippet csc "csc" i
+\csc($1)$0
+endsnippet
+
+snippet cot "cot" i
+\cot($1)$0
+endsnippet
+
+
+
+snippet 2matrix "2x2 matrix"
+\begin{pmatrix} $1 & $2 \\\\ $3 & $4 \end{pmatrix} $0
+endsnippet
+
+snippet 3matrix "3x3 matrix"
+\begin{pmatrix} $1 & $2 & $3 \\\\ $4 & $5 & $6 \\\\ $7 & $8 & $9 \end{pmatrix} $0
+endsnippet
+
+snippet 4matrix "4x4 matrix" 
+\begin{pmatrix} $1 & $2 & $3 & $4 \\\\ $5 & $6 & $7 & $8 \\\\ $9 & $10 & $11 & $12 \\\\ $13 & $14 & $15 & $16 \end{pmatrix} $0
+endsnippet
+
+snippet 5matrix "5x5 matrix" 
+\begin{pmatrix} $1 & $2 & $3 & $4 & $5 \\\\ $6 & $7 & $8 & $9 & $10 \\\\ $11 & $12 & $13 & $14 & $15 \\\\ $16 & $17 & $18 & $19 & $20 \\\\ $21 & $22 & $23 & $24 & $25 \end{pmatrix} $0
+endsnippet
+
+snippet 6matrix "6x6 matrix" 
+\begin{pmatrix} $1 & $2 & $3 & $4 & $5 & $6 \\\\ $7 & $8 & $9 & $10 & $11 & $12 \\\\ $13 & $14 & $15 & $16 & $17 & $18 \\\\ $19 & $20 & $21 & $22 & $23 & $24 \\\\ $25 & $26 & $27 & $28 & $29 & $30 \\\\ $31 & $32 & $33 & $34 & $35 & $36 \end{pmatrix} $0
+endsnippet
+
+snippet 7matrix "7x7 matrix"
+\begin{pmatrix} $1 & $2 & $3 & $4 & $5 & $6 & $7 \\\\ $8 & $9 & $10 & $11 & $12 & $13 & $14 \\\\ $15 & $16 & $17 & $18 & $19 & $20 & $21 \\\\ $22 & $23 & $24 & $25 & $26 & $27 & $28 \\\\ $29 & $30 & $31 & $32 & $33 & $34 & $35 \\\\ $36 & $37 & $38 & $39 & $40 & $41 & $42 \\\\ $43 & $44 & $45 & $46 & $47 & $48 & $49 \end{pmatrix} $0
+endsnippet
+      
+snippet 2vector "2-element column vector" i
+\begin{pmatrix} $1 \\\\ $2 \end{pmatrix} $0
+endsnippet
+
+snippet 3vector "3-element column vector"  i
+\begin{pmatrix} $1 \\\\ $2 \\\\ $3 \end{pmatrix} $0
+endsnippet
+
+snippet 4vector "4-element column vector" i
+\begin{pmatrix} $1 \\\\ $2 \\\\ $3 \\\\ $4 \end{pmatrix} $0
+endsnippet
+
+snippet 5vector "5-element column vector" 
+\begin{pmatrix} $1 \\\\ $2 \\\\ $3 \\\\ $4 \\\\ $5 \end{pmatrix} $0
+endsnippet
+
+snippet 6vector "6-element column vector" 
+\begin{pmatrix} $1 \\\\ $2 \\\\ $3 \\\\ $4 \\\\ $5 \\\\ $6 \end{pmatrix} $0
+endsnippet
+
+snippet pdel "partial derivative"
+\frac{\partial $1 }{\partial $2 } $0
+endsnippet
+
+snippet pdel^2 "2nd order pure partial derivative"
+\frac{\partial^2 $1 }{\partial $2 ^2} $0
+endsnippet
+
+snippet mpdel^2 "2nd order mixed partial derivative"
+\frac{\partial^2 $1 }{\partial $2 \partial $3 } $0
+endsnippet
+
+snippet figure "add a figure" b
+\begin{figure}[H] \begin{center} \includegraphics[width=0.6\textwidth]{.resources/figures/$1} \caption{$2}\end{center} \end{figure}
+endsnippet
+
+snippet gamma "gamma" i
+\gamma 
+endsnippet
+
+priority 2
+snippet infint "infint" i
+{\int_{-\infty}^\infty}$1{d$2} $0
+endsnippet
+
+snippet theta "theta" i
+\theta $0
+endsnippet
+priority 1
+
+snippet omega "omega" i
+\omega $0
+endsnippet
+
+
+priority 2
+snippet beta "beta" i
+\beta $0
+endsnippet
+priority 1
+
+snippet textbf "bold" i
+\textbf{ $1} 
+endsnippet
+
+snippet inp "inner product" i
+{\langle $1 , $2 \rangle}  $0
+endsnippet
+
+snippet phi "phi" i
+\phi $0
+endsnippet
+
+snippet {} "curly braces" i
+{ $1 }$0
+endsnippet
+
+snippet mu "mu" i
+\mu $0
+endsnippet
+
+snippet nu "nu" i
+\nu $0
+endsnippet
+
+snippet eta "eta" i
+\eta $0
+endsnippet
+
+snippet vec "vector arrow" i
+\vec $0
+endsnippet
+
+snippet ^_ "updown" i
+^{$1}_{$2}$0
+endsnippet
+
+snippet bar "bar" i
+\bar $0
+endsnippet
+
+snippet cbrt "cbrt" i
+\sqrt[^3]{ $1 } $0
+endsnippet
+
+snippet ss "smallskip" 
+\smallskip
+endsnippet
+
+snippet ms "medskip" 
+\medskip
+endsnippet
+
+snippet bs "bigskip" 
+\bigskip
+endsnippet
+
+snippet ~ "tilde" w
+\sim
+endsnippet
+
+snippet addpages "pdfpages" b
+\includepdf[pages={1-},scale=1, pagecommand={}]{Problems/.resources/pdf/$1.pdf} $0
+endsnippet
+
+snippet lim "limit" i
+{\lim_{$1 \to $2}} $0
+endsnippet
+
+snippet space "space" i 
+\text{ }$0
+endsnippet
+
+snippet forall "forall with spaces" i
+\text{ }\forall\text{ } $0
+endsnippet
+
+snippet s.t. "such that" i
+\text{ s.t. }$0
+endsnippet
+
+snippet align "begin align"
+\begin{aligned} $1 \end{aligned} $0
+endsnippet
+
+snippet cdot "dot product" i
+\cdot
+endsnippet
+
+snippet dd "derivative"
+\frac{d $1}{d $2} $0
+endsnippet
+
+snippet 10 "10 to the power of" i
+10^{$1} $0
+endsnippet
+
+snippet enumerate "enumerate" b
+\begin{enumerate}[$1]
+
+\item $2
+
+\end{enumerate}
+
+$0
+endsnippet
+
+snippet item "item" b
+\item $1
+
+$0
+endsnippet
+
+
+priority 1
+snippet bra "bra" i
+\bra{$1} $0
+endsnippet
+
+snippet ket "ket" i 
+\ket{$1} $0
+endsnippet
+
+priority 2
+snippet braket "braket" i
+\braket{$1 | $2} 
+endsnippet
+
+snippet bracket "braket" i
+\braket{$1 | $2} 
+endsnippet
+
+priority 1
+
+
+snippet quantum "quantum header" i
+Honors Quantum Physics II
+endsnippet
+
+snippet thermal "thermal header" i
+Thermal Physics
+endsnippet
+
+snippet vectcalc "vector calc header" i
+Honors Vector Calculus
+endsnippet
+
+snippet expmeth "expmeth header"
+Experimental Methods 1
+endsnippet
+
+snippet modern "modern physics header" i
+Modern Physics
+endsnippet
+
+snippet pm "plus minus" i
+\pm $0
+endsnippet
+
+snippet mp "minus plus" i
+\mp $0
+endsnippet
+
+snippet +- "plus minus" i
+\pm $0
+endsnippet
+
+snippet -+ "minus plus" i
+\mp $0
+endsnippet
+
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
+\\frac{`!p snip.rv = match.group(1)`}{$1} $0
+endsnippet
+
+priority 1000
+snippet '^.*\)/' "() Fraction" wr
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i -= 1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1} $0
+endsnippet
+priority 1
+
+priority 0
+snippet frac "Fraction" i
+\\frac{${VISUAL}}{$1} $0
+endsnippet
+priority 1
+
+snippet and "and" i
+\and$0
+endsnippet
+
+snippet psi "psi" i
+\psi $0
+endsnippet
+
+snippet ampsquared "amplitude squared" i
+\lvert\braket{$1|$2}\rvert^2
+endsnippet
+
+snippet modulus "magnitude" i
+\lvert $1 \rvert$0
+endsnippet
+
+snippet expvalue "expvalue" i
+\langle $1 \rangle$0
+endsnippet
+
+snippet bf "bold" i
+\bf{$1} $0
+endsnippet
+
+snippet Delta "Delta" i
+\Delta $0
+endsnippet
+
+snippet mono "monospaced" i
+\texttt{$1} $0
+endsnippet
+
+snippet it "italics" i
+\textit{$1} $0
+endsnippet
+
+snippet code "code" b
+%%% vtnb start %%%
+\begin{minted}{python}
+$1
+\end{minted}
+%%% vtnb end %%%
+$0
+endsnippet
+
+snippet sp.Matrix "sympy matrix"
+sp.Matrix([  $1    ]) $0
+endsnippet
+
+snippet partial "partial" i
+\partial $0
+endsnippet
+
+priority 0
+snippet del "del" i
+\partial_{$1}$0
+endsnippet
+
+snippet sub "math sub" i
+_{$1}$0
+endsnippet
+priority 1
+
+snippet mag "magnitude" i
+||$1||$0
+endsnippet
+
+snippet label "equation label" i
+\label{eq:$1} $0
+endsnippet
+
+snippet ref "refer to equation" i
+(\ref{eq:$1}) $0
+endsnippet
+
+snippet comm "commuatator" i
+[ \hat $1 , \hat $2 ]$0
+endsnippet
+
+snippet hat "hat" i
+\hat $0
+endsnippet
+
+priority 2
+snippet ccomm "nonsimple commutator" i 
+[ \hat $1 $2   , \hat $3  $4 ] $0
+endsnippet
+snippet hbar "hbar" i
+\hbar $0
+endsnippet
+snippet boilercode "code boilerplate" 
+%%% vtnb start %%%
+\begin{minted}{python}
+import sys; sys.path.append('/home/gram/Documents/FileFolder/School/quantum357/problem_sets/minefield'); from aides import *
+\end{minted}
+%%% vtnb end %%%
+
+endsnippet
+priority 1
+
+priority 2
+snippet Beta "beta" i
+\beta $0
+endsnippet
+snippet Lgamma "lorentz gamma expanded" i
+\frac{1}{\sqrt{1-\frac{v_{\text{rel}}^2}{c^2}}}$0
+endsnippet
+snippet state "state" i
+\ket{$1, $2} $0
+endsnippet
+snippet unit "unit txt" i
+\text{$1}$0
+endsnippet
+priority 1
+
+snippet times "times" i
+\times $0
+endsnippet
+
+snippet attachfig "attach a pic"
+`!p
+if not snip.c:
+	import os
+	import subprocess
+
+	canceled = False
+	# Command to open the Zenity file picker with a filter for PDF files
+	command = ['zenity', '--file-selection', '--file-filter=Imgs and PDFs | *.pdf *.png *.jpg *.jpeg']
+	picked = subprocess.run(command, capture_output=True, text=True).stdout.strip()
+
+	if picked.strip() == "":
+		canceled = True
+
+	# Define the current directory based on the opened file in vim
+	current_dir = vim.eval('expand("%:p:h")') + "/"
+
+	# Create the .resources/figures directory if it doesn't exist
+	figures_dir = os.path.join(current_dir, '.resources', 'figures')
+	os.makedirs(figures_dir, exist_ok=True)
+
+	# Define the destination path
+	filename = os.path.basename(picked)
+	destination = os.path.join(figures_dir, filename)
+
+	# Check if the file already exists, and if so, add a number to the filename
+	if os.path.exists(destination):
+		base, ext = os.path.splitext(filename)
+		counter = 1
+		new_filename = f"{base}_{counter}{ext}"
+		new_destination = os.path.join(figures_dir, new_filename)
+
+		# Loop until we find a unique filename
+		while os.path.exists(new_destination):
+			counter += 1
+			new_filename = f"{base}_{counter}{ext}"
+			new_destination = os.path.join(figures_dir, new_filename)
+		
+		destination = new_destination  # Update destination to the new unique filename
+
+	# Copy the file to the destination
+	subprocess.run(['cp', picked, destination])
+
+	return_thing = r"\begin{figure}[H] \begin{center} \includegraphics[width=0.6\textwidth]{" + destination + r"} \caption"+"\n{ }\n"+r"\end{center} \end{figure}"
+	if canceled:
+		return_thing=" "
+	snip.rv = return_thing
+`
+endsnippet
+
+snippet attachpdf "attach a pdf"
+`!p
+if not snip.c:
+	import os
+	import subprocess
+
+	canceled = False
+	# Define the current directory based on the opened file in vim
+	current_dir = vim.eval('expand("%:p:h")') + "/"
+
+	# Command to open the Zenity file picker with a filter for PDF files
+	command = ['zenity', '--file-selection', '--file-filter=PDFs | *.pdf', f'--filename={current_dir}']
+	picked = subprocess.run(command, capture_output=True, text=True).stdout.strip()
+	
+	if picked.strip() == "":
+		canceled = True
+
+	# Create the .resources/pdf directory if it doesn't exist
+	pdfs_dir = os.path.join(current_dir, '.resources', 'pdf')
+	os.makedirs(pdfs_dir, exist_ok=True)
+
+	# Define the destination path
+	filename = os.path.basename(picked)
+	destination = os.path.join(pdfs_dir, filename)
+
+	# Check if the file already exists, and if so, add a number to the filename
+	if os.path.exists(destination):
+		base, ext = os.path.splitext(filename)
+		counter = 1
+		new_filename = f"{base}_{counter}{ext}"
+		new_destination = os.path.join(pdfs_dir, new_filename)
+
+		# Loop until we find a unique filename
+		while os.path.exists(new_destination):
+			counter += 1
+			new_filename = f"{base}_{counter}{ext}"
+			new_destination = os.path.join(pdfs_dir, new_filename)
+		
+		destination = new_destination  # Update destination to the new unique filename
+
+	# Copy the file to the destination
+	subprocess.run(['cp', picked, destination])
+
+	return_thing = r"\includepdf[pages={1-},scale=1, pagecommand={}]{Problems/.resources/pdf/"+destination+r"}"
+	if canceled:
+		return_thing=" "
+	snip.rv = return_thing
+`
+endsnippet
+
+snippet signal "" b
+`!p 
+if not snip.c:
+	import os
+	import time
+	import subprocess
+
+	# Get the current directory of the opened file
+	current_dir = vim.eval('expand("%:p:h")')+"/"
+
+	b = time.time()
+	
+	try:
+		os.system("notify-send 'checking for images'")
+	except:
+		pass # who cares
+
+	os.system("/opt/signal-cli-0.13.7/bin/signal-cli -a +18013178085 receive --max-messages 1")
+	l = time.time()
+	latex = str(l-b)
+
+	# Create the .resources/figures/ directory if it doesn't exist
+	figures_dir = os.path.join(current_dir, '.resources', 'figures')
+	os.makedirs(figures_dir, exist_ok=True)
+
+	# Get the most recent attachment from the specified directory
+	attachments_dir = '/home/gram/.local/share/signal-cli/attachments/'
+	recent_attachment = subprocess.check_output(
+		["ls", "-1t", attachments_dir],
+		text=True
+	).splitlines()[0]
+
+	time_rn = time.time()
+	modified_date = os.path.getmtime(attachments_dir + recent_attachment)
+	time_diff = time_rn - modified_date
+	# this gets checked at the end
+	
+
+	try:
+
+		os.system(f"notify-send 'most recent image received {str(int(time_diff))} seconds ago'")
+	except:
+		pass # who cares
+
+	# Copy the most recent attachment to the figures directory
+	src_path = os.path.join(attachments_dir, recent_attachment)
+	dst_path = os.path.join(figures_dir, recent_attachment)
+	subprocess.run(["cp", src_path, dst_path])
+
+	latex = r"\begin{figure}[H] \begin{center} \includegraphics[width=0.6\textwidth]{.resources/figures/" + recent_attachment + r"} \caption"+"\n{ }\n"+r"\end{center} \end{figure}"
+
+	if time_diff > 120:
+		latex ="TIME-DIFF ERROR RETRIEVING IMAGE"
+	else:
+		try:
+			os.system("dunstctl close-all")
+			os.system("notify-send 'Ctrl-Shift-B'")
+			os.system(f"pinta {current_dir+'.resources/figures/'+recent_attachment} &")
+		except:
+			pass # who cares
+
+	snip.rv=latex`
+endsnippet
+
+snippet pinta "pinta" 
+`!p
+if not snip.c:
+	line = vim.eval("getline('.')")
+	import os
+	def extract_filepath(latex_string):
+		match = re.search(r"\\includegraphics\[.*?\]{(.*?)}", latex_string)
+		if match and str(match.group(1)) != "None":
+			return str(match.group(1))
+		else:
+			os.system("notify-send -u critical 'couldn't find the file'")
+			return False
+
+	filepath = extract_filepath(line)
+	if filepath != False:
+		os.system(f"pinta {filepath} &")
+	snip.rv=" "
+`
+endsnippet
+
+
+snippet white_to_alpha.sh "white_to_alpha.sh" i
+`!p
+if not snip.c:
+	current_buffer = vim.current.buffer
+	line = vim.eval("getline('.')")
+	import os
+	def extract_filepath(latex_string):
+		match = re.search(r"\\includegraphics\[.*?\]{(.*?)}", latex_string)
+		if match and str(match.group(1)) != "None":
+			return str(match.group(1))
+		else:
+			os.system("notify-send -u critical 'couldn't find the file'")
+			return False
+
+	filepath = extract_filepath(line)
+	if filepath != False:
+		os.system(f"/usr/local/bin/white_to_alpha.sh {filepath}")
+		latex = r"\begin{figure}[H] \begin{center} \includegraphics[width=0.6\textwidth]{.resources/figures/" + os.path.splitext(os.path.basename(filepath))[0] +"_tp.png" + r"} \caption"
+	current_line_number = vim.current.window.cursor[0]
+	current_buffer[current_line_number:current_line_number] = [latex,""]
+	snip.rv=" "
+`
+endsnippet
+
+
+
+snippet mathcal "mathcal" i
+\mathcal $0
+endsnippet
+
+priority -1
+snippet cal "mathcal" i
+\mathcal $0
+endsnippet
+
+snippet Rn "Rn" i
+\R^n $0
+endsnippet
+snippet Rm "Rm" i
+\R^m
+endsnippet
+priority -2
+snippet R "R" i
+\R $0
+endsnippet
+priority 1
+
+
+snippet result "resultbox" b
+\begin{resultbox}[$1]
+$2
+\end{resultbox} \medskip
+
+$0
+endsnippet
+
+snippet remark "remarkbox" b
+\begin{remarkbox}[$1]
+$2
+\end{remarkbox} \medskip
+
+$0
+endsnippet
+
+snippet rowtable "table"
+`!p
+if not snip.c:
+	current_buffer = vim.current.buffer
+	line = vim.eval("getline('.')")
+
+	import re
+
+	# Count occurrences of \startrow and \endrow
+	start_count = line.count(r'\startrow')
+	end_count = line.count(r'\endrow')
+
+	# Raise an error if counts do not match
+	if start_count != end_count:
+	  raise ValueError("Error: Mismatched start and end rows. Ensure all \\startrow are closed with \\endrow.")
+
+	# Use regular expressions to find all occurrences of the rows
+	rows = re.findall(r'\\startrow(.*?)\\endrow', line)
+
+	# Function to process each item according to the specified rules
+	def process_item(item):
+	  item = item.strip()
+	  if item.startswith("'") and item.endswith("'"):
+		  return item[1:-1]  # Remove quotes
+	  else:
+		  return f"${item}$"  # Add dollar signs
+
+	# Clean up and create a list of lists
+	list_of_lists = []
+	num_cols = None  # Store the number of columns for checking consistency
+	for row in rows:
+	  items = [process_item(item) for item in row.split(',')]
+	  # Wrap the first element in \textbf{}
+	  items[0] = f"\\textbf{{{items[0]}}}"
+	  
+	  if num_cols is None:
+		  num_cols = len(items)  # Set the number of columns from the first row
+	  elif len(items) != num_cols:
+		  raise ValueError("Error: Inconsistent number of columns in rows.")
+		  
+	  list_of_lists.append(items)
+
+
+	def generate_latex_table(data):
+	  num_cols = len(data[0])
+	  col_alignment = "c" * num_cols
+	  latex_code = r"""\begin{table}[ht]
+	  \centering
+	  \caption{}\medskip
+	  \begin{tabular}{@{}""" + col_alignment + r"""@{}}
+		  \toprule
+	"""
+	  for i, row in enumerate(data):
+		  latex_code += "        " + " & ".join(row)  # Row content
+		  if i < len(data) - 1:  # Add \midrule only if not the last row
+			  latex_code += r" \\ \midrule" + "\n"
+		  else:
+			  latex_code += r" \\" + "\n" # Just a newline for the last row
+
+	  latex_code += r"""        \bottomrule
+	  \end{tabular}
+	\end{table}
+	"""
+	  return latex_code
+
+	# Generate the LaTeX table code
+	latex_table = generate_latex_table(list_of_lists).split("\n")
+
+	# Print the LaTeX table code
+	#print(latex_table)
+	current_line_number = vim.current.window.cursor[0]
+	current_buffer[current_line_number:current_line_number] = latex_table
+	snip.rv="rowtable  done"
+`
+endsnippet
+
+snippet coltable "table"
+`!p
+if not snip.c:
+	current_buffer = vim.current.buffer
+	line = vim.eval("getline('.')")
+	# Print the LaTeX table code
+
+	import re
+
+	# Count and validate start/end tags
+	start_count = line.count(r'\startcol')
+	end_count = line.count(r'\endcol')
+	if start_count != end_count:
+		raise ValueError("Error: Mismatched start and end columns.")
+
+	# Extract columns
+	cols = re.findall(r'\\startcol(.*?)\\endcol', line)
+
+	# Process items and transpose
+	def process_item(item):
+		item = item.strip()
+		if item.startswith("'") and item.endswith("'"):
+			return item[1:-1]
+		else:
+			return f"${item}$"
+
+	list_of_lists = []
+	for col in cols:
+		items = [process_item(item) for item in col.split(',')]
+		items[0] = f"\\textbf{{{items[0]}}}"  # Bold the first item (header)
+		list_of_lists.append(items)
+
+	# Transpose the list of lists (columns to rows)
+	transposed_list = list(map(list, zip(*list_of_lists)))
+
+
+	def generate_latex_table(data):
+		num_cols = len(data[0])
+		col_alignment = "c" * num_cols
+		latex_code = r"""\begin{table}[ht]
+		\centering
+		\caption{}\medskip
+		\begin{tabular}{@{}""" + col_alignment + r"""@{}}
+			\toprule
+	"""
+		for i, row in enumerate(data):
+			latex_code += "        " + " & ".join(row)
+			if i < len(data) - 1:
+				latex_code += r" \\ \midrule" + "\n"
+			else:
+				latex_code += r" \\" + "\n"
+
+		latex_code += r"""        \bottomrule
+		\end{tabular}
+	\end{table}
+	"""
+		return latex_code
+
+	latex_table = generate_latex_table(transposed_list).split("\n")
+
+
+	#print(latex_table)
+	current_line_number = vim.current.window.cursor[0]
+	current_buffer[current_line_number:current_line_number] = latex_table
+	snip.rv="coltable  done"
+`
+endsnippet
+
+snippet theorem "theorem" b
+\begin{theo}[$1]
+$0
+\end{theo}
+endsnippet
+
+snippet question "question" b
+\begin{question}[ $1]
+$0
+\end{question}
+endsnippet
+
+snippet ddt "derivative" i
+\frac{d $1}{dt} $0
+endsnippet
+
+snippet deriv "derivative" i
+\frac{d $1}{d $2} $0
+endsnippet
+
+snippet vert "vert" i
+{\bigg\vert_{ $1}^{ $2}} $0
+endsnippet
+
+snippet ddx "derivative" i
+\frac{d $1}{dx} $0
+endsnippet
+
+snippet cases "cases" i
+\begin{cases}  $1 & $2   \\\   $3   &   $4       \end{cases}
+$0
+endsnippet
+
+snippet det "determinant" i
+\det $0
+endsnippet
+
+snippet to "to" i
+\to $0
+endsnippet
+
+priority 0
+snippet in "in" i
+\in $0
+endsnippet
+priority 1
+
+snippet vol "volume" i
+\text{ vol}( $1)$0
+endsnippet
+
+snippet def "definition" i
+\begin{definition}[$1] $2 \end{definition}
+$0
+endsnippet
+
+snippet white "white_to_alpha.sh" i
+white_to_alpha.sh$0
+endsnippet
+
+snippet Omega "Omega" i
+\Omega $0
+endsnippet
+
+snippet hrule "hrule" i
+\hr
+$0
+endsnippet
+snippet hr "hrule" i
+\hr
+$0
+endsnippet
+
+snippet idop "idop" i
+{\int^\infty_{-\infty}}dx \ket{$1}\braket{$1|$2} $0
+endsnippet
+
+snippet tilde "tilde" i
+\tilde $0
+endsnippet
+
+
+snippet abc
+\[  \begin{aligned} (a)\quad & $1 \\\ (b)\quad & $2 \\\ (c)\quad & $3 \\\ (d)\quad & $4 \\\ (e)\quad & $5 \end{aligned}   \]
+
+endsnippet

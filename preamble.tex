@@ -1,0 +1,230 @@
+\usepackage[bottom]{footmisc}
+\usepackage{pdfpages}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{cancel}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{ifthen}
+
+% \everymath{\displaystyle}
+
+\renewcommand{\l}{\lambda}
+\newcommand{\p}{\phi}
+\newcommand{\w}{\omega}
+\renewcommand{\r}{\rho}
+\newcommand{\B}{\beta}
+\newcommand{\e}{\varepsilon}
+\newcommand{\g}{\gamma}
+\newcommand{\C}{\zeta}
+\newcommand{\Del}{\nabla}  
+\renewcommand{\a}{\alpha}
+\renewcommand{\d}{\delta}
+\newcommand{\Let}{\text{Let } }  
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\&}{&\text{ } }  
+\renewcommand{\and}{\text{ and } }  
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\counterwithin*{equation}{section}
+\newcommand{\hr}{\bigskip\hrule\bigskip}
+\newcommand{\midskip}{\medskip}
+
+\usepackage{newunicodechar}
+\newunicodechar{ℯ}{{e}} % No \makebox for better minted handling
+
+
+\vfuzz=100pt
+\let\oldexists\exists \renewcommand{\exists}{\text{ }\oldexists\text{ }}
+\let\oldsection\section \renewcommand{\section}{\setcounter{equation}{0}\oldsection}
+\let\oldsubsection\subsection \renewcommand{\subsection}{\setcounter{equation}{0}\oldsubsection}
+
+
+\definecolor{lightergrey}{HTML}{E8E8E8}
+\usepackage{fontspec}
+\usepackage[left=0.8in, right=0.8in]{geometry}
+
+\setmonofont{DejaVu Sans Mono}
+
+
+
+\definecolor{lightergrey}{HTML}{E8E8E8}
+
+\setminted{
+  style=default,
+  bgcolor=lightgray,         % Light gray background
+  fontsize=\scriptsize,       % Smaller font size
+  breaklines=true,           % Wrap long lines
+  breakanywhere=true,
+  frame=lines,                % Frame around the code block
+  linenos=true,              % Show line numbers
+  numbersep=5pt,             % Space between line numbers and code
+  tabsize=2,                 % Tab size
+  showspaces=false,          % Don't show spaces
+  showtabs=false,            % Don't show tabs
+  gobble=0,                  % Remove indentation 
+  mathescape=true,           % Allow inline math mode
+  python3=true,             % Python 3 syntax highlighting (adjust as needed)
+  % ... other options can be added here as needed ...
+}
+
+\setminted[inputminted]{
+  style=default,
+  bgcolor=red,         % Light gray background
+  fontsize=\scriptsize,       % Smaller font size
+  breaklines=true,           % Wrap long lines
+  breakanywhere=true,
+  frame=lines,                % Frame around the code block
+  linenos=true,              % Show line numbers
+  numbersep=5pt,             % Space between line numbers and code
+  tabsize=2,                 % Tab size
+  showspaces=false,          % Don't show spaces
+  showtabs=false,            % Don't show tabs
+  gobble=0,                  % Remove indentation 
+  mathescape=true,           % Allow inline math mode
+  python3=true,             % Python 3 syntax highlighting (adjust as needed)
+  % ... other options can be added here as needed ...
+}
+
+\setmintedinline{
+  bgcolor=lightergrey,
+  fontsize=\footnotesize,
+  breaklines=true,
+  breaksymbolleft=\tiny$\hookrightarrow$
+}
+
+\newmintinline[pythons]{python}{python3=true}
+\newmintinline{bash}{}
+
+\usemintedstyle{xcode}
+\setminted[python]{style=xcode}
+
+
+
+% Define a custom environment with an optional argument for remarks
+\newtcolorbox[auto counter, number within=section]{remarkbox}[1][]{
+    colback=gray!10, % Light grey background
+    colframe=gray!50, % Slightly darker grey border
+    coltitle=black,
+    boxrule=0.5pt, % Border thickness
+    left=1em, % Left padding
+    right=1em, % Right padding
+    top=1em, % Top padding
+    bottom=1em, % Bottom padding
+    title=Remark \thetcbcounter\ifstrempty{#1}{}{ -- #1}, % Header with optional text
+    fonttitle=\bfseries, % Bold header text
+}
+
+% Define a custom environment with an optional argument for remarks
+\newtcolorbox[auto counter, number within=section]{resultbox}[1][]{
+    colback=gray!10, % Light grey background
+    colframe=gray!50, % Slightly darker grey border
+    coltitle=black,
+    boxrule=0.5pt, % Border thickness
+    left=1em, % Left padding
+    right=1em, % Right padding
+    top=1em, % Top padding
+    bottom=1em, % Bottom padding
+    title=Result \thetcbcounter\ifstrempty{#1}{}{ -- #1}, % Header with optional text
+    fonttitle=\bfseries, % Bold header text
+}
+
+\newcounter{theo}[section]
+\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+
+\newenvironment{theo}[1][]{%
+  \refstepcounter{theo}%
+  \ifstrempty{#1}%
+  {\mdfsetup{%
+    frametitle={%
+      \tikz[baseline=(current bounding box.east),outer sep=0pt]
+      \node[anchor=east,rectangle,fill=blue!20, text width=0.9\linewidth]
+      {\strut \parbox{\linewidth}{Theorem~\thetheo}};}}
+  }%
+  {\mdfsetup{%
+    frametitle={%
+      \tikz[baseline=(current bounding box.east),outer sep=0pt]
+      \node[anchor=east,rectangle,fill=blue!20, text width=0.9\linewidth]
+      {\strut \parbox{\linewidth}{Theorem~\thetheo:~#1}};}}%
+  }%
+  \mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+    linewidth=2pt,topline=true,%
+    frametitleaboveskip=\dimexpr-\ht\strutbox\relax%  No additional skip needed with parbox approach
+  }
+  \begin{mdframed}[]\relax%
+  }
+  {\end{mdframed}}
+
+
+% now the question environment:
+\newcounter{question}[section]
+\setcounter{question}{0}
+\renewcommand{\thequestion}{}
+
+\newenvironment{question}[1][]{%
+  \refstepcounter{question}%
+  \ifstrempty{#1}%
+  {\mdfsetup{%
+    frametitle={%
+      \tikz[baseline=(current bounding box.east),outer sep=0pt]
+      \node[anchor=east,rectangle,fill=black!95, text width=0.9\linewidth]
+      {\strut \parbox{\linewidth}{Question~\thequestion}};}}
+  }%
+  {\mdfsetup{%
+    frametitle={%
+      \tikz[baseline=(current bounding box.east),outer sep=0pt]
+      \node[anchor=east,rectangle,fill=black!95, text width=0.9\linewidth]
+{\strut \parbox{\linewidth}{\color{white} Question\thequestion~#1}};}}%
+  }%
+  \mdfsetup{innertopmargin=10pt,linecolor=black!95,%
+    linewidth=2pt,topline=true,%
+    frametitleaboveskip=\dimexpr-\ht\strutbox\relax%  No additional skip needed with parbox approach
+  }
+  \begin{mdframed}[]\relax%
+  }
+  {\end{mdframed}}
+
+
+\usepackage{tcolorbox}
+\newtcolorbox{myheadingbox}{colback=black!0!white, colframe=black, width=\textwidth, boxrule=0.75mm, arc=0mm, boxsep=5pt, left=0pt}
+
+\newenvironment{myheader}[1]
+{
+    \begin{center}
+    \begin{myheadingbox}
+    \textbf{\large #1}
+}
+{
+    \end{myheadingbox}
+    \end{center}
+}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+% Custom environment for definitions
+\newmdenv[
+    backgroundcolor=red!10,
+    linecolor=red!50,
+    linewidth=1pt,
+    roundcorner=6pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    innertopmargin=3pt,
+    innerbottommargin=3pt,
+    skipabove=1pt,
+    skipbelow=1pt
+]{definitionbox}
+
+\newenvironment{definition}[1][]{%
+    \begin{definitionbox}
+    \textbf{Definition#1 -} %
+}{%
+    \end{definitionbox}
+}

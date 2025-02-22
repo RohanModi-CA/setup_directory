@@ -1,0 +1,13 @@
+
+[FilePicker]	    	[Legacy]
+attachpdf		    	addpages	
+attachfig			     figure
+
+[misc] 					[tables]
+signal				 rowtable (\startrow)
+					 coltable (\endcol)
+
+[image manipulation]        [other]
+white_to_alpha.sh          terminal
+pinta                  thunar, nautilus
+

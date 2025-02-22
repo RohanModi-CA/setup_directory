@@ -1,0 +1,38 @@
+snippet thunar "open thunar" 
+`!p
+if not snip.c:
+	import os
+	current_dir = vim.eval('expand("%:p:h")')+"/"
+	os.system(f"thunar {current_dir} &")
+	snip.rv=" "
+`
+endsnippet
+
+snippet nautilus "open nautilus" 
+`!p
+if not snip.c:
+	import os
+	current_dir = vim.eval('expand("%:p:h")')+"/"
+	os.system(f"nautilus {current_dir} &")
+	snip.rv=" "
+`
+endsnippet
+
+snippet realpath "realpath"
+`!p
+if not snip.c:
+	import os
+	current_file = vim.eval('expand("%:p")')
+	snip.rv=current_file
+`
+endsnippet
+
+snippet terminal "open terminal"
+`!p
+if not snip.c:
+	import os
+	current_dir = vim.eval('expand("%:p:h")')+"/"
+	os.system(f"kitty {current_dir} &")
+	snip.rv=" "
+`
+endsnippet

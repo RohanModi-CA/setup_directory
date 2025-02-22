@@ -1,0 +1,74 @@
+snippet par "paragraph tags" w
+<p>  $1  </p> $0
+endsnippet
+
+snippet `` "in-line code" wA
+<code>$1</code> $0
+endsnippet
+
+snippet code "code-block" w
+<div class="code-block">$1</div>
+$0
+endsnippet
+
+snippet img "image" w
+<img src=".resources/img/$1", class="std-img">
+<br> $0
+endsnippet
+
+snippet figure "figure-label" w
+<span class="figure-label"> Figure $1 </span> $0
+endsnippet
+
+snippet \n "blankline" w
+<div>‎<br></div> $0
+endsnippet
+
+snippet docsetup "docsetup" w
+<!DOCTYPE HTML>
+		<html lang="en">
+		<head> <meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>$1</title>
+		<link rel="stylesheet" href="fonts/fonts.css">
+		<link rel="stylesheet" href="style.css">
+		</head>
+<body>
+
+<div class = "post">
+		<span class="post-title"> $1 </span>
+		<hr>
+		<div class = "author-container">
+		<span class = "author"> Rohan Modi </span>
+		<span class = "date"> $2 </span>
+		</div>
+		<hr>
+		<span class = "post-text">
+
+		$0
+
+
+</span> <!-- close post-text -->
+</div> <!-- close post -->
+</body>
+endsnippet
+
+snippet span "span" w
+<span class="$1"> $2 </span> $0
+endsnippet
+
+snippet div "div" w
+<div class="$1">$2</div> $0
+endsnippet
+
+snippet link "link" w
+<a href="$1">$2</a>
+endsnippet
+
+snippet subheader "subheader" w
+<span class="post-title x-large left half-em-margin"> $1 </span> $0
+endsnippet
+
+snippet # "comment" i
+<!-- $1 --> $0
+endsnippet
