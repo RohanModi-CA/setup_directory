@@ -71,3 +71,22 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/Documents/FileFolder/setup/UltiSnips"
 " Open alacrity in this directory 
 command! Alacritty execute '!alacritty --working-directory ' . shellescape(getcwd()) . ' &'
 command! Termhere execute '!alacritty --working-directory ' . shellescape(getcwd()) . ' &'
+
+
+" ===== RUNSCRIPT =====
+
+function! Execute_runscript()
+  " Runscript Module
+  let s:alacritty_run_terminal_path = "/home/gram/Documents/FileFolder/setup/alacritty_run_terminal.sh"
+  let s:current_dir = getcwd()
+  let s:alacritty_path = "/usr/bin/alacritty"
+  let s:bash_or_zsh = "bash"
+  let s:runscript = "runscript.sh"
+
+  let s:command = printf('%s "%s" "%s" "%s" "%s" "%s"', s:alacritty_run_terminal_path, s:alacritty_path, s:bash_or_zsh, s:current_dir, s:runscript, "2")
+
+  call system(s:command)
+
+endfunction
+
+command! Run call Execute_runscript()
