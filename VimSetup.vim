@@ -1,13 +1,15 @@
-"set number
-"filetype plugin on
-" syntax enable
-"set tabstop=4
-"set shiftwidth=4
+set number
+filetype plugin on
+syntax enable
+set tabstop=4
+set shiftwidth=4
 set wildignore+=*.pdf
 luafile /home/gram/Documents/FileFolder/setup/VimSetup.lua
-"set foldmethod=indent
+set foldmethod=indent
 command W write
 command Q quit
+
+source /home/gram/Documents/FileFolder/setup/coc_defaults.vim
 
 command SNIPPETHELP execute "! cat /home/gram/Documents/FileFolder/setup/snipsref.txt"
 
@@ -54,19 +56,22 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/Documents/FileFolder/setup/UltiSnips"
 
 
 
-" " Start Vim-Plug
-" call plug#begin()
-" 
-" Plug 'lervag/vimtex'
-" Plug 'sirver/ultisnips'
-" Plug 'RohanModi-CA/KaVimTeX', { 'branch': 'rohanmodi' }
-" 
-" Plug 'RohanModi-CA/vt-shortcuts', { 'branch': 'rohanmodi' }
-" Plug 'RohanModi-CA/vtnb', { 'branch': 'rohanmodi' }
-" 
-" call plug#end()
-" " End Vim-Plug
-" 
+"Start Vim-Plug
+call plug#begin()
+ 
+ Plug 'lervag/vimtex'
+ Plug 'sirver/ultisnips'
+ Plug 'RohanModi-CA/KaVimTeX', { 'branch': 'rohanmodi' }
+ 
+ Plug 'RohanModi-CA/vt-shortcuts', { 'branch': 'rohanmodi' }
+ Plug 'RohanModi-CA/vtnb', { 'branch': 'rohanmodi' }
+
+ Plug 'folke/tokyonight.nvim'
+ Plug 'nvim-tree/nvim-tree.lua'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ call plug#end()
+" End Vim-Plug
+ 
 
 " Open alacrity in this directory 
 command! Alacritty execute '!alacritty --working-directory ' . shellescape(getcwd()) . ' &'
@@ -90,3 +95,4 @@ function! Execute_runscript()
 endfunction
 
 command! Run call Execute_runscript()
+
