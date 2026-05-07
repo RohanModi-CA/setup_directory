@@ -57,8 +57,12 @@ snippet span "span" w
 <span class="$1"> $2 </span> $0
 endsnippet
 
+snippet divi "divi" w
+<div id="$1" class="$2">$3</div> <!-- $1 --> $0
+endsnippet
+
 snippet div "div" w
-<div class="$1">$2</div> $0
+<div class="$1" id="$2">$3</div> <!-- End $1, id $2 --> $0
 endsnippet
 
 snippet link "link" w
@@ -71,4 +75,27 @@ endsnippet
 
 snippet # "comment" i
 <!-- $1 --> $0
+endsnippet
+
+snippet // "comment" i
+<!-- $1 --> $0
+endsnippet
+
+snippet head "head" wb
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="$1">
+	<script src="$2"></script>
+</head>
+
+<body>
+	$0
+</body>
+
+endsnippet
+
+snippet script "script import" wb 
+<script src="$1"></script>$0
 endsnippet

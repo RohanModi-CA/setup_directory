@@ -1,18 +1,19 @@
+let g:SETUP_DIRECTORY = '/home/gram/Documents/FileFolder/setup/'
+
+
 set number
 filetype plugin on
 syntax enable
+syntax sync fromstart
 set tabstop=4
 set shiftwidth=4
 set wildignore+=*.pdf
-luafile /home/gram/Documents/FileFolder/setup/VimSetup.lua
-set foldmethod=indent
 command W write
 command Q quit
 
-source /home/gram/Documents/FileFolder/setup/coc_defaults.vim
+execute 'source ' . g:SETUP_DIRECTORY . 'coc_defaults.vim'
 
 command SNIPPETHELP execute "! cat /home/gram/Documents/FileFolder/setup/snipsref.txt"
-
 " command VTNBCompile 'so /home/gram/Documents/FileFolder/Projects/vtnb/lua/vtnb_compile/init.lua'
 map i a
 
@@ -67,15 +68,27 @@ call plug#begin()
  Plug 'RohanModi-CA/vtnb', { 'branch': 'rohanmodi' }
 
  Plug 'folke/tokyonight.nvim'
- Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua', { 'tag': 'v1.3.0' }
+
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'navarasu/onedark.nvim'
+
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
+
  call plug#end()
 " End Vim-Plug
- 
+"
+
 
 " Open alacrity in this directory 
 command! Alacritty execute '!alacritty --working-directory ' . shellescape(getcwd()) . ' &'
 command! Termhere execute '!alacritty --working-directory ' . shellescape(getcwd()) . ' &'
+
+command! Nautilus execute '!nautilus ' . shellescape(getcwd()) . ' &'
+
+command! Syntax execute 'syntax sync fromstart'
 
 
 " ===== RUNSCRIPT =====
@@ -96,3 +109,17 @@ endfunction
 
 command! Run call Execute_runscript()
 
+
+colorscheme tokyonight
+colorscheme tokyonight-day
+colorscheme onedark
+
+let g:onedark_config = {
+    \ 'style': 'light',
+\}
+
+nnoremap <LocalLeader>t :NvimTreeToggle<CR>
+nnoremap <LocalLeader>r :CocRestart<CR>
+
+execute 'luafile ' . g:SETUP_DIRECTORY . 'VimSetup.lua'
+set foldmethod=indent

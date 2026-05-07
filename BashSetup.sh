@@ -1,4 +1,73 @@
+
+alias piomonitor='pio run -e uno -t monitor'
+alias piorunupload='pio run -e uno -t upload -t monitor'
+
+#!/bin/bash
+
+alias iphone="/home/gram/Documents/FileFolder/setup/scripts/iphone/iphone.sh"
+
+alias topdf="/home/gram/Documents/FileFolder/setup/scripts/to-pdf/to-pdf.sh"
+
+# do this in genvenv	
+alias rmmouse="env -u SSH_AUTH_SOCK remouse --password 'oaqy1Obm47'"
+alias reactivate='source /home/gram/Documents/FileFolder/Projects/BlocksSSH/activate'
+alias dontsleep='nosuspend'
+alias nosuspend='systemd-inhibit --what=handle-lid-switch sleep infinity'
+
+dualmpv() {
+    local file="$1"
+    local sid1="$2"
+    local sid2="$3"
+
+    mpv --sid="$sid1" --secondary-sid="$sid2" "$file"
+}
+
+
+alias rmxopp='/home/gram/Documents/FileFolder/Projects/rm-xopp-converter/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/rm-xopp-converter/main.py'
+
+
+pyfixqt () {
+python3 - <<'PY' "$@"
+import os, runpy, sys, cv2
+os.environ.pop("QT_QPA_PLATFORM_PLUGIN_PATH", None)
+os.environ.pop("QT_QPA_FONTDIR", None)
+os.environ.pop("QT_PLUGIN_PATH", None)
+script = sys.argv[1]
+sys.argv = sys.argv[1:]
+runpy.run_path(script, run_name="__main__")
+PY
+}
+
+
+alias cdblocks="cd /home/gram/Documents/FileFolder/Projects/BlocksSSH"
+
+alias signinremarkable="sshpass -p 'oaqy1Obm47' ssh root@10.11.99.1"
+
+alias remarkablepassword="echo oaqy1Obm47 | clip"
+alias pinta='flatpak run com.github.PintaProject.Pinta'
+alias matlabinstall='/home/gram/TarApps/matlab/mpm
+ install --release=R2025b --destination=/home/gram/TarApps/matlab/ --products'
+alias mlab='matlab -nodesktop'
+alias matlabrun='matlab -batch'
+alias matlab='/usr/local/MATLAB/R2025b/bin/matlab'
+alias xelatex='xelatex -interaction=nonstopmode -halt-on-error'
+alias clean_p_files='python3 /home/gram/Documents/FileFolder/Projects/rmtools/rmtools/pipelines/clean_p_files.py'
+alias editable_rmtools_pip='pip install -e /home/gram/Documents/FileFolder/Projects/rmtools'
+alias rmtools_pip_non_e='pip install /home/gram/Documents/FileFolder/Projects/rmtools'
+alias quinzestuff='/home/gram/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R /home/gram/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
+
+alias quinzestuffs='/home/gram/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R -s /home/gram/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
+
+alias cdobsidian='cd /home/gram/Documents/FileFolder/Obsidian'
+alias dirstuff='python3 ~/Documents/FileFolder/setup/scripts/dirstuff/dirstuff.py'
+alias rm='trash'
+alias P38gen="source ~/.venvs/P38gen/bin/activate"
+alias genvenv="source ~/.venvs/general/bin/activate"
+alias qtvenv="source ~/.venvs/general_sysqt/bin/activate"
+alias aistudio='echo "Always use \$ and \$\$ formatting for math. Make sure all math expressions, including their delimeters, are on the same line. Ensure there are no spaces between the starts and ends of math and their delimeters" | clip'
+alias downloadnotes='/home/gram/Documents/FileFolder/Projects/note-imap-thing/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/note-imap-thing/main.py'
 alias termhere='alacritty --working-directory $(pwd) &'
+alias activatevenv='source .venv/bin/activate'
 alias gdb='gdb -q'
 alias createvenv='python3 -m venv .venv/'
 alias disconnectheadphones='bluetoothctl disconnect B0:38:E2:5D:FE:C0'
@@ -63,7 +132,7 @@ export PATH="$PATH:/opt/cleantex/"
 export PATH="$PATH:/opt/btclip/"
 alias 'photo'='eog'
 alias 'reloadbashrc'='source ~/.bashrc'
-
+alias pastephoto='xclip -selection clipboard -t image/png -o > '
 
 
 
@@ -105,3 +174,28 @@ alias headphonesconnectbluetooth='bluetoothctl connect B0:38:E2:5D:FE:C0'
 export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 
 export BROWSER='/usr/bin/firefox'           # default web browser
+
+      
+export PATH="$PATH:/home/gram/.cargo/bin"
+
+
+
+# --- Copy this to the bottom of ~/.bashrc ---
+
+# 1. Function to find the current git branch
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# 2. Define colors (optional, but makes it readable)
+RED="\[\033[0;31m\]"
+GREEN="\[\033[0;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+NO_COLOR="\[\033[0m\]"
+
+# 3. Set the Prompt Structure (PS1)
+# Structure: [User@Host] [Directory] [Git Branch] $
+export PS1="${GREEN}\u@\h${NO_COLOR}:${BLUE}\w${YELLOW}\$(parse_git_branch)${NO_COLOR}\$ "
+
+unset VIMRUNTIME

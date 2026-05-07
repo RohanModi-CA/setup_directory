@@ -1,0 +1,5 @@
+[Unit]
+Description=Battery Notify Service
+
+[Service]
+ExecStart=/home/gram/Documents/FileFolder/setup/scripts/battery-notify/battery_notify.sh
