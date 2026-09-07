@@ -1,4 +1,6 @@
-let g:SETUP_DIRECTORY = '/home/gram/Documents/FileFolder/setup/'
+set termguicolors
+let g:SETUP_DIRECTORY = '/home/thinkpad/Documents/FileFolder/setup/'
+let g:python3_host_prog = '/home/thinkpad/.local/bin/pynvim-python'
 
 
 set number
@@ -13,8 +15,8 @@ command Q quit
 
 execute 'source ' . g:SETUP_DIRECTORY . 'coc_defaults.vim'
 
-command SNIPPETHELP execute "! cat /home/gram/Documents/FileFolder/setup/snipsref.txt"
-" command VTNBCompile 'so /home/gram/Documents/FileFolder/Projects/vtnb/lua/vtnb_compile/init.lua'
+command SNIPPETHELP execute "! cat /home/thinkpad/Documents/FileFolder/setup/snipsref.txt"
+" command VTNBCompile 'so /home/thinkpad/Documents/FileFolder/Projects/vtnb/lua/vtnb_compile/init.lua'
 map i a
 
 
@@ -95,7 +97,7 @@ command! Syntax execute 'syntax sync fromstart'
 
 function! Execute_runscript()
   " Runscript Module
-  let s:alacritty_run_terminal_path = "/home/gram/Documents/FileFolder/setup/alacritty_run_terminal.sh"
+  let s:alacritty_run_terminal_path = "/home/thinkpad/Documents/FileFolder/setup/alacritty_run_terminal.sh"
   let s:current_dir = getcwd()
   let s:alacritty_path = "/usr/bin/alacritty"
   let s:bash_or_zsh = "bash"
@@ -110,16 +112,15 @@ endfunction
 command! Run call Execute_runscript()
 
 
-colorscheme tokyonight
+"colorscheme tokyonight
 colorscheme tokyonight-day
-colorscheme onedark
 
-let g:onedark_config = {
-    \ 'style': 'light',
-\}
 
 nnoremap <LocalLeader>t :NvimTreeToggle<CR>
 nnoremap <LocalLeader>r :CocRestart<CR>
 
 execute 'luafile ' . g:SETUP_DIRECTORY . 'VimSetup.lua'
-set foldmethod=indent
+
+
+
+

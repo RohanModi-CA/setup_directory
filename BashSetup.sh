@@ -4,13 +4,13 @@ alias piorunupload='pio run -e uno -t upload -t monitor'
 
 #!/bin/bash
 
-alias iphone="/home/gram/Documents/FileFolder/setup/scripts/iphone/iphone.sh"
+alias iphone="/home/thinkpad/Documents/FileFolder/setup/scripts/iphone/iphone.sh"
 
-alias topdf="/home/gram/Documents/FileFolder/setup/scripts/to-pdf/to-pdf.sh"
+alias topdf="/home/thinkpad/Documents/FileFolder/setup/scripts/to-pdf/to-pdf.sh"
 
 # do this in genvenv	
 alias rmmouse="env -u SSH_AUTH_SOCK remouse --password 'oaqy1Obm47'"
-alias reactivate='source /home/gram/Documents/FileFolder/Projects/BlocksSSH/activate'
+alias reactivate='source /home/thinkpad/Documents/FileFolder/Projects/BlocksSSH/activate'
 alias dontsleep='nosuspend'
 alias nosuspend='systemd-inhibit --what=handle-lid-switch sleep infinity'
 
@@ -23,7 +23,7 @@ dualmpv() {
 }
 
 
-alias rmxopp='/home/gram/Documents/FileFolder/Projects/rm-xopp-converter/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/rm-xopp-converter/main.py'
+alias rmxopp='/home/thinkpad/Documents/FileFolder/Projects/rm-xopp-converter/.venv/bin/python3 /home/thinkpad/Documents/FileFolder/Projects/rm-xopp-converter/main.py'
 
 
 pyfixqt () {
@@ -39,42 +39,42 @@ PY
 }
 
 
-alias cdblocks="cd /home/gram/Documents/FileFolder/Projects/BlocksSSH"
+alias cdblocks="cd /home/thinkpad/Documents/FileFolder/Projects/BlocksSSH"
 
 alias signinremarkable="sshpass -p 'oaqy1Obm47' ssh root@10.11.99.1"
 
 alias remarkablepassword="echo oaqy1Obm47 | clip"
 alias pinta='flatpak run com.github.PintaProject.Pinta'
-alias matlabinstall='/home/gram/TarApps/matlab/mpm
- install --release=R2025b --destination=/home/gram/TarApps/matlab/ --products'
+alias matlabinstall='/home/thinkpad/TarApps/matlab/mpm
+ install --release=R2025b --destination=/home/thinkpad/TarApps/matlab/ --products'
 alias mlab='matlab -nodesktop'
 alias matlabrun='matlab -batch'
 alias matlab='/usr/local/MATLAB/R2025b/bin/matlab'
 alias xelatex='xelatex -interaction=nonstopmode -halt-on-error'
-alias clean_p_files='python3 /home/gram/Documents/FileFolder/Projects/rmtools/rmtools/pipelines/clean_p_files.py'
-alias editable_rmtools_pip='pip install -e /home/gram/Documents/FileFolder/Projects/rmtools'
-alias rmtools_pip_non_e='pip install /home/gram/Documents/FileFolder/Projects/rmtools'
-alias quinzestuff='/home/gram/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R /home/gram/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
+alias clean_p_files='python3 /home/thinkpad/Documents/FileFolder/Projects/rmtools/rmtools/pipelines/clean_p_files.py'
+alias editable_rmtools_pip='pip install -e /home/thinkpad/Documents/FileFolder/Projects/rmtools'
+alias rmtools_pip_non_e='pip install /home/thinkpad/Documents/FileFolder/Projects/rmtools'
+alias quinzestuff='/home/thinkpad/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R /home/thinkpad/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
 
-alias quinzestuffs='/home/gram/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R -s /home/gram/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
+alias quinzestuffs='/home/thinkpad/Documents/FileFolder/setup/scripts/dirstuff/quinzestuff.sh -R -s /home/thinkpad/Documents/FileFolder/Obsidian/QuinzePlus | clip' 
 
-alias cdobsidian='cd /home/gram/Documents/FileFolder/Obsidian'
+alias cdobsidian='cd /home/thinkpad/Documents/FileFolder/Obsidian'
 alias dirstuff='python3 ~/Documents/FileFolder/setup/scripts/dirstuff/dirstuff.py'
 alias rm='trash'
 alias P38gen="source ~/.venvs/P38gen/bin/activate"
 alias genvenv="source ~/.venvs/general/bin/activate"
 alias qtvenv="source ~/.venvs/general_sysqt/bin/activate"
 alias aistudio='echo "Always use \$ and \$\$ formatting for math. Make sure all math expressions, including their delimeters, are on the same line. Ensure there are no spaces between the starts and ends of math and their delimeters" | clip'
-alias downloadnotes='/home/gram/Documents/FileFolder/Projects/note-imap-thing/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/note-imap-thing/main.py'
+alias downloadnotes='/home/thinkpad/Documents/FileFolder/Projects/note-imap-thing/.venv/bin/python3 /home/thinkpad/Documents/FileFolder/Projects/note-imap-thing/main.py'
 alias termhere='alacritty --working-directory $(pwd) &'
 alias activatevenv='source .venv/bin/activate'
 alias gdb='gdb -q'
 alias createvenv='python3 -m venv .venv/'
 alias disconnectheadphones='bluetoothctl disconnect B0:38:E2:5D:FE:C0'
-alias ai='/home/gram/Documents/FileFolder/Projects/aistudio_cli/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/aistudio_cli/main.py'
+alias ai='/home/thinkpad/Documents/FileFolder/Projects/aistudio_cli/.venv/bin/python3 /home/thinkpad/Documents/FileFolder/Projects/aistudio_cli/main.py'
 alias recentclip='recentfile=$(ls -t | head -n 1 2>/dev/null); if [ -n "$recentfile" ]; then realpath "$recentfile" | clip; fi; echo "$recentfile"'
-alias ctmux="/home/gram/Documents/FileFolder/setup/cvim_tmux_startup.sh"
-alias doublesider="/home/gram/Documents/FileFolder/Projects/doublesider/.venv/bin/python3 /home/gram/Documents/FileFolder/Projects/doublesider/DoubleSider.py"
+alias ctmux="/home/thinkpad/Documents/FileFolder/setup/cvim_tmux_startup.sh"
+alias doublesider="/home/thinkpad/Documents/FileFolder/Projects/doublesider/.venv/bin/python3 /home/thinkpad/Documents/FileFolder/Projects/doublesider/DoubleSider.py"
 alias pipvenv='.venv/bin/pip3'
 alias py3venv='.venv/bin/python3'
 alias pyvenv='.venv/bin/python3'
@@ -111,9 +111,9 @@ alias sxhkdsetup='vim ~/.config/sxhkd/sxhkdrc'
 alias cdtelechargements='cd ~/Téléchargements/'
 alias 'cdrohanmodi.ca'='cdprojects && cd rohanmodi.ca/'
 alias cdminefield='cdprojects && cd.. && cd minefield'
-alias vimtodo='vim /home/gram/Documents/FileFolder/12.0/todo.twelve-o'
-alias todo='vim /home/gram/Documents/FileFolder/12.0/todo.twelve-o'
-alias todovim='vim /home/gram/Documents/FileFolder/12.0/todo.twelve-o'
+alias vimtodo='vim /home/thinkpad/Documents/FileFolder/12.0/todo.twelve-o'
+alias todo='vim /home/thinkpad/Documents/FileFolder/12.0/todo.twelve-o'
+alias todovim='vim /home/thinkpad/Documents/FileFolder/12.0/todo.twelve-o'
 alias ':q'='echo You are not editing a file, dummy.'
 alias ':wq'=':q'
 alias 'q'=':q'
@@ -154,7 +154,7 @@ export PATH="$HOME/gems/bin:$PATH"
 #     |_|\_\__,_| \/   |_|_| |_| |_|_|\___/_/ \_\
                                             
 
-KVTlayout_path="/home/gram/Documents/FileFolder/minefield/minefield.json"
+KVTlayout_path="/home/thinkpad/Documents/FileFolder/minefield/minefield.json"
 
 # Get the window ID using the PID
 KVTkitty_window_id=$(xdotool search --pid $PPID)
@@ -176,7 +176,7 @@ export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 export BROWSER='/usr/bin/firefox'           # default web browser
 
       
-export PATH="$PATH:/home/gram/.cargo/bin"
+export PATH="$PATH:/home/thinkpad/.cargo/bin"
 
 
 
